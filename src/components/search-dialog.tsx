@@ -23,7 +23,7 @@ type SearchItem = {
 
 function SearchDialog() {
   const [keyword, setKeyword] = useState('');
-  const [data, setData] = useState<[]>([]);
+  const [data, setData] = useState<SearchItem[]>([]);
   const [loading, setLoading] = useState(false);
   const reset = () => {
     setKeyword('');
@@ -50,7 +50,7 @@ function SearchDialog() {
         console.log('search results', json);
       } catch (e) {
         // abort면 무시
-        if ((e as any)?.name !== 'AbortError') setData([]);
+        if ((e as Error)?.name !== 'AbortError') setData([]);
       } finally {
         setLoading(false);
       }
