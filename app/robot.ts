@@ -5,8 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/private/',
+      disallow: ['/api/', '/private/'],
     },
-    sitemap: 'https://acme.com/sitemap.xml',
+    sitemap: 'https://blog-c9md.vercel.app/sitemap.xml',
   };
 }
