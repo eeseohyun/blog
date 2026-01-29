@@ -1,0 +1,136 @@
+/* * 노션 스타일 */
+
+/* @import './global.css'; */
+
+/* 블록 숢김 처리 */
+.notion-block-2f5d897fd0c2804e8eb7f49f732c7c16 {
+  display: none;
+}
+
+.notion {
+  --notion-max-width: 800px;
+  --notion-header-height: 54px;
+  @apply bg-background text-foreground;
+}
+
+.notion b {
+  @apply font-bold;
+}
+
+.notion-page {
+  @apply notion-container px-0 pt-14 pb-0 md:pt-20;
+}
+
+.notion-root-page {
+  @apply md:w-5xl;
+}
+
+.notion-page-no-cover {
+  @apply mt-12! md:mt-14!;
+}
+
+.notion-page-no-cover.notion-page-has-image-icon {
+  @apply pt-40;
+}
+
+.notion-page-icon-hero {
+  @apply top-5;
+}
+
+.notion-collection-card {
+  @apply bg-background hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 min-h-90 rounded-2xl shadow-none;
+}
+
+.notion-collection-card-cover {
+  @apply h-52 rounded-2xl border-none;
+}
+
+.notion-collection-card-body {
+  @apply gap-1;
+}
+
+.notion-collection-card-property {
+  & .notion-property-title {
+    @apply text-foreground! text-2xl;
+    & .notion-page-icon-inline {
+      display: none;
+      & img {
+        @apply h-7 max-h-7 w-7 max-w-7;
+      }
+    }
+  }
+  & .notion-property-text {
+    @apply text-base font-medium whitespace-normal;
+  }
+}
+
+@media (min-width: 1300px) and (min-height: 300px) {
+  .notion-page-content-has-aside {
+    width: calc((100vw + var(--notion-max-width)) / 2 - 24px);
+  }
+}
+
+.notion-collection-page-properties {
+  display: none; /* Collection 페이지 속성 히든 처리 */
+}
+
+.notion-aside-table-of-contents-header {
+  display: none; /* Table of contents 텍스트 히든 처리 */
+}
+
+.notion-page-icon-hero {
+  display: none; /* Hero 아이콘 히든 처리 */
+}
+
+/* * 갤러리 */
+.notion-gallery-grid {
+  @apply grid-cols-1 border-none md:grid-cols-2;
+}
+
+/* * 구분 선 */
+.notion-hr {
+  @apply border-border border-t-1;
+}
+
+/* * 캡션 */
+.notion-asset-caption {
+  @apply text-muted-foreground;
+}
+
+/* * 링크 */
+.notion-page-link {
+  @apply text-foreground;
+}
+
+/* * 갤러리 카드 */
+.notion-collection-card {
+  @apply text-foreground;
+}
+
+/* * 목차 */
+.notion-aside-table-of-contents {
+  @apply bg-accent rounded-2xl p-4;
+}
+
+.notion-table-of-contents a {
+  @apply text-foreground;
+}
+
+.notion-table-of-contents a.notion-table-of-contents-active-item,
+.notion-table-of-contents
+  a.notion-table-of-contents-active-item
+  .notion-table-of-contents-item-body {
+  @apply text-chart-3 font-bold;
+}
+
+.notion-title {
+  @apply text-4xl font-bold;
+}
+
+.notion-h-title {
+  @apply text-2xl font-bold;
+}
+
+.notion-simple-table {
+  @apply border-border;
+}
