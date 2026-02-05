@@ -18,8 +18,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Mayo Blog',
   description: 'A blog about development and technology.',
+  verification: {
+    google: 'GOgA9ww5pKlPGX3GiCl8qkZz8-EBt6iT6SzCkArAvgQ',
+  },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
