@@ -69,7 +69,10 @@ function SearchDialog() {
           <IoSearch />
         </Button>
       </DialogTrigger>
-      <DialogContent showCloseButton={false} className="top-1/5 border-0 p-0">
+      <DialogContent
+        showCloseButton={false}
+        className="top-[12vh] max-h-[80vh] translate-y-0 overflow-hidden border-0 p-0"
+      >
         <DialogHeader>
           <DialogTitle>
             <Input
