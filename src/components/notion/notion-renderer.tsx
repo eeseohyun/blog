@@ -63,7 +63,7 @@ export default function NotionRenderer({
       fullPage={isBlogPost}
       previewImages={!!recordMap.preview_images}
       showTableOfContents={isBlogPost}
-      minTableOfContentsItems={10}
+      minTableOfContentsItems={1}
       disableHeader={true}
     />
   );
