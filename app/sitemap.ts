@@ -34,7 +34,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   const postEntries: MetadataRoute.Sitemap = posts.map(p => ({
-    url: `${SITE_URL}/${p.id.replaceAll('-', '')}`,
+    url: `${SITE_URL}/${p.id}`,
     lastModified: p.lastEdited ? new Date(p.lastEdited) : new Date(),
     changeFrequency: 'weekly',
     priority: 0.7,
