@@ -15,7 +15,7 @@ export const notionRetrieve = async () => {
   return page;
 };
 
-let cachedDataSourceId: string | null = null;
+let cachedDataSourceId: string = '';
 
 export async function getPostDataSourceId() {
   if (cachedDataSourceId) return cachedDataSourceId;
