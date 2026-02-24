@@ -29,12 +29,11 @@ const getPageMetaById = async (
 ): Promise<{ title: string; subtitle: string }> => {
   try {
     const recordMap = await notion.getPage(pageId);
-    const pageBlock = recordMap?.block?.[pageId]?.value;
-    const props = pageBlock?.properties ?? {};
+    const wrapped = recordMap?.block?.[pageId];
+    const pageBlock: any = (wrapped as any)?.value ?? wrapped;
+    const props: any = pageBlock?.properties ?? {};
 
     const title = getPropText(props?.title);
-
-    // subtitle: 너가 말한 [QMX 같은 컬렉션 프로퍼티
     const subtitle = getPropText(props?.['[QMX']);
 
     return { title, subtitle };
