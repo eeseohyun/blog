@@ -23,8 +23,9 @@ export async function getPostDataSourceId() {
   const db = await notionClient.databases.retrieve({
     database_id: process.env.NOTION_DATABASE!,
   });
+  console.log('Retrieved database info:', db);
 
-  const ds = (db as any).data_sources?.[0];
+  const ds = (db as { id: string; data_sources?: { id: string }[] }).data_sources?.[0];
   if (!ds?.id) {
     throw new Error('No data_sources found in this database.');
   }
