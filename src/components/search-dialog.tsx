@@ -111,7 +111,7 @@ export default SearchDialog;
 
 const SearchResult = ({ data }: { data: SearchItem }) => {
   return (
-    <div className="hover:bg-accent rounded-md px-4 py-6 not-last:border-b-1">
+    <div className="hover:bg-accent rounded-md px-4 py-6 not-last:border-b">
       <DialogClose asChild>
         <Link href={`/${data.id}`} className="block space-y-1">
           <h3

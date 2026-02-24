@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 function CustomHeader() {
   return (
-    <header className="bg-background shadow-foreground/10 fixed z-999 h-16 w-full px-10 shadow-sm">
+    <header className="bg-background shadow-foreground/10 fixed z-999 h-16 w-full px-2 shadow-sm md:px-10">
       <div className="mx-auto flex h-full w-full items-center justify-between md:max-w-5xl">
         <Link href="/" className="flex items-center gap-2">
           <Image src="/logo.png" alt="Logo" width={30} height={20} />

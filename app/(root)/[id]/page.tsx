@@ -9,7 +9,7 @@ export default async function Detail({ params }: { params: Promise<{ id: string 
   const recordMap = await notion.getPage(id, { fetchMissingBlocks: true });
 
   return (
-    <article className="mx-auto min-h-[calc(100vh-110px)] max-w-[800px] space-y-8 py-14">
+    <article className="mx-auto min-h-[calc(100vh-110px)] w-full max-w-200 space-y-8 px-2 py-14">
       <NotionRenderer recordMap={recordMap} />
       <Giscus
         repo="eeseohyun/blog"
