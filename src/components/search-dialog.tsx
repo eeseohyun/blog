@@ -47,7 +47,6 @@ function SearchDialog() {
         if (!res.ok) throw new Error('Search failed');
         const json = await res.json();
         setData(json.results ?? []);
-        console.log('search results', json);
       } catch (e) {
         // abort면 무시
         if ((e as Error)?.name !== 'AbortError') setData([]);

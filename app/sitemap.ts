@@ -13,7 +13,6 @@ async function getAllPostPages(limit = 200) {
   });
 
   const results = res?.results ?? res ?? [];
-  console.log('sitemap - fetched posts:', results);
 
   return results
     .filter((r: any) => r?.id)

@@ -7,7 +7,6 @@ import { Theme } from '@/common/constants';
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  console.log('theme', theme);
   return (
     <Button
       size={'icon-sm'}

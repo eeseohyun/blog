@@ -43,7 +43,6 @@ export default function NotionRenderer({
   const isBlogPost = useMemo(() => {
     const keys = Object.keys(recordMap?.block || {});
     const block = recordMap?.block?.[keys[0]]?.value;
-    console.log('block', block);
     return block?.type === 'page' && block?.parent_table === 'collection';
   }, [recordMap]);
 
