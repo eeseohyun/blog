@@ -15,14 +15,36 @@ export const notionRetrieve = async () => {
   return page;
 };
 
-export const notionQuery = async () => {
+let cachedDataSourceId: string | null = null;
+
+export async function getPostDataSourceId() {
+  if (cachedDataSourceId) return cachedDataSourceId;
+
+  const db = await notionClient.databases.retrieve({
+    database_id: process.env.NOTION_DATABASE!,
+  });
+
+  const ds = (db as any).data_sources?.[0];
+  if (!ds?.id) {
+    throw new Error('No data_sources found in this database.');
+  }
+
+  cachedDataSourceId = ds.id;
+  return cachedDataSourceId;
+}
+
+export const notionQuery = async (params?: { tag?: string; cursor?: string }) => {
+  const { tag, cursor } = params ?? {};
+  const data_source_id = await getPostDataSourceId();
   const page = await notionClient.dataSources.query({
-    data_source_id: '2f4d897f-d0c2-80f8-a8f6-000b23cf547b',
+    data_source_id,
+    start_cursor: cursor,
+    page_size: 12,
     filter: {
-      property: '상태',
-      status: {
-        equals: '진행 중',
-      },
+      and: [
+        { property: '상태', status: { equals: '완료' } },
+        ...(tag ? [{ property: '태그', multi_select: { contains: tag } }] : []),
+      ],
     },
     sorts: [
       {
