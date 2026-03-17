@@ -16,7 +16,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Mayo Blog',
+  title: {
+    default: 'Mayo Blog',
+    template: '%s | Mayo Blog',
+  },
   description: 'A blog about development and technology.',
   verification: {
     google: 'GOgA9ww5pKlPGX3GiCl8qkZz8-EBt6iT6SzCkArAvgQ',
