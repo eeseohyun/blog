@@ -48,24 +48,8 @@ function extractPageMeta(recordMap: ExtendedRecordMap) {
 
   const title = getPlainText(pageBlock?.properties?.title) || 'Untitled Post';
 
-  const textBlocks = blocks.filter(block =>
-    [
-      'text',
-      'bulleted_list',
-      'numbered_list',
-      'quote',
-      'callout',
-      'to_do',
-      'toggle',
-    ].includes(block.type),
-  );
-
   const description =
-    textBlocks
-      .map(block => getPlainText(block.properties?.title))
-      .find(text => text.length > 0)
-      ?.slice(0, 160) || '개발과 기술에 대한 글입니다.';
-
+    getPlainText(pageBlock?.properties?.['[QMX']) || '개발과 기술에 대한 글입니다.';
   return {
     title,
     description,
