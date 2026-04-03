@@ -28,6 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     posts = await getAllPostPages(200);
+    console.log('posts length:', posts.length);
   } catch {
     posts = [];
   }
