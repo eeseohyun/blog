@@ -24,18 +24,18 @@ async function getAllPostPages(limit = 200) {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  let posts: { id: string; lastEdited?: string }[] = [];
+  let posts: { id: string; lastEdited?: string | number }[] = [];
 
   try {
     posts = await getAllPostPages(200);
-  } catch (e) {
+  } catch {
     posts = [];
   }
 
   const postEntries: MetadataRoute.Sitemap = posts.map(p => ({
     url: `${SITE_URL}/${p.id}`,
     lastModified: p.lastEdited ? new Date(p.lastEdited) : new Date(),
-    changeFrequency: 'weekly',
+    changeFrequency: 'weekly' as const,
     priority: 0.7,
   }));
 
