@@ -38,7 +38,8 @@ async function getAllPostPages(): Promise<SitemapItem[]> {
     .filter(r => Boolean(r?.id))
     .map(r => ({
       id: r.id.replace(/-/g, ''),
-      lastModified: r.lastEditedTime ?? r.last_edited_time ?? r.last_edited_time_ms,
+      lastModified:
+        r.lastEditedTime ?? r.last_edited_time ?? r.last_edited_time_ms ?? undefined,
     }));
 }
 
@@ -55,7 +56,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       },
       ...posts.map(post => ({
         url: `${SITE_URL}/${post.id}`,
-        lastModified: post.lastModified ? new Date(post.lastModified) : new Date(),
+        lastModified: post.lastModified ? new Date(post.lastModified) : undefined,
         changeFrequency: 'weekly' as const,
         priority: 0.7,
       })),
